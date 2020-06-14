@@ -1,4 +1,4 @@
-﻿namespace BaseApiWithSwagger.Models
+﻿namespace BaseApiWithSwagger.Data.Models
 {
     public class Dummy
     {

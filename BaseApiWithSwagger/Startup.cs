@@ -1,7 +1,9 @@
 ﻿using BaseApiWithSwagger.Actions;
+using BaseApiWithSwagger.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
@@ -11,6 +13,8 @@ namespace BaseApiWithSwagger
 {
     public class Startup
     {
+        private const string InMemoryDbIndicator = "InMemory";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -24,11 +28,13 @@ namespace BaseApiWithSwagger
             {
                 services.AddTransient<IDummyActions, DummyActions>();
 
+                services.AddDbContext<Context>(SetDbContext);
+
                 services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
                 services.AddSwaggerGen(c =>
                 {
-                    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Covid19Nz", Version = "v1" });
+                    c.SwaggerDoc("v1", new OpenApiInfo { Title = "BaseApiWithSwagger", Version = "v1" });
                 });
             }
             catch (Exception ex)
@@ -64,6 +70,20 @@ namespace BaseApiWithSwagger
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        private void SetDbContext(DbContextOptionsBuilder options)
+        {
+            var connection = Configuration.GetConnectionString("DefaultConnection");
+
+            if (connection.Equals(InMemoryDbIndicator, StringComparison.InvariantCultureIgnoreCase))
+            {
+                options.UseInMemoryDatabase(InMemoryDbIndicator);
+            }
+            else
+            {
+                options.UseSqlite(connection);
             }
         }
     }
