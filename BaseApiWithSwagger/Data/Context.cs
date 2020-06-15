@@ -1,5 +1,7 @@
 ﻿using BaseApiWithSwagger.Data.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
 
 namespace BaseApiWithSwagger.Data
 {
@@ -10,6 +12,21 @@ namespace BaseApiWithSwagger.Data
         {
         }
 
-        public DbSet<Dummy> Dummy { get; set; }
+        public DbSet<Dummy> Dummies { get; set; }
+
+        public void Seed()
+        {
+            if (!this.Dummies.Any())
+            {
+                this.Dummies.Add(
+                    new Dummy
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                    }
+                );
+
+                this.SaveChanges();
+            }
+        }
     }
 }
