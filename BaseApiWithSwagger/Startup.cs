@@ -66,6 +66,19 @@ namespace BaseApiWithSwagger
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Base Api With Swagger V1");
                     c.RoutePrefix = string.Empty;
                 });
+
+                using (var serviceScope = app.ApplicationServices.CreateScope())
+                {
+                    var context = serviceScope.ServiceProvider.GetRequiredService<Context>();
+                    if (!context.Database.IsInMemory())
+                    {
+                        context.Database.Migrate();
+                    }
+                    else
+                    {
+                        context.Seed();
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -83,6 +96,7 @@ namespace BaseApiWithSwagger
             }
             else
             {
+                //Data Source=Stats.db
                 options.UseSqlite(connection);
             }
         }
