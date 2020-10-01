@@ -96,7 +96,7 @@ namespace BaseApiWithSwagger
             }
             else
             {
-                //Data Source=Stats.db
+                //Data Source=dummy.db
                 options.UseSqlite(connection);
             }
         }
