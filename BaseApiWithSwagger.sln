@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.757
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseApiWithSwagger", "BaseApiWithSwagger\BaseApiWithSwagger.csproj", "{027A46CE-A3E4-46C0-8D12-F7287BC6C12A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Base.Api", "BaseApiWithSwagger\src\Base.Api\Base.Api.csproj", "{F293D7AD-94A1-46DA-B5F2-92E62782403C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{027A46CE-A3E4-46C0-8D12-F7287BC6C12A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{027A46CE-A3E4-46C0-8D12-F7287BC6C12A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{027A46CE-A3E4-46C0-8D12-F7287BC6C12A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{027A46CE-A3E4-46C0-8D12-F7287BC6C12A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F293D7AD-94A1-46DA-B5F2-92E62782403C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F293D7AD-94A1-46DA-B5F2-92E62782403C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F293D7AD-94A1-46DA-B5F2-92E62782403C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F293D7AD-94A1-46DA-B5F2-92E62782403C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
